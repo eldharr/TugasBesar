@@ -24,7 +24,7 @@ public class MainApp extends Application {
         AnchorPane pane = loader.load();
         Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Welcome to OOP2");
+        primaryStage.setTitle("Welcome to Department Store");
         primaryStage.show();
     }
 
