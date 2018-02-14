@@ -5,39 +5,43 @@
  */
 package com.Eldhar.entity;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author Developer
  */
 public class Role {
-    public int id;
-    public String username;
-    
-    public Role () {
-        
+
+    private final IntegerProperty role_id = new SimpleIntegerProperty();
+
+    public int getRole_id() {
+        return role_id.get();
     }
 
-    public Role(int id, String username) {
-        this.id = id;
-        this.username = username;
+    public void setRole_id(int value) {
+        role_id.set(value);
     }
 
-    public int getId() {
-        return id;
+    public IntegerProperty role_idProperty() {
+        return role_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    private final StringProperty role_name = new SimpleStringProperty();
+
+    public String getRole_name() {
+        return role_name.get();
     }
 
-    public String getUsername() {
-        return username;
+    public void setRole_name(String value) {
+        role_name.set(value);
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public StringProperty role_nameProperty() {
+        return role_name;
     }
-    
-    
-    
+
 }

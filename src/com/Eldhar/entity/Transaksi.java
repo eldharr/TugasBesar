@@ -5,58 +5,101 @@
  */
 package com.Eldhar.entity;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 /**
  *
  * @author Developer
  */
 public class Transaksi {
-    public int id;
-    public String date;
-    public int payment;
-    public int user_id;
-    
-    public Transaksi () {
-        
+
+    private final IntegerProperty Transaksi_id = new SimpleIntegerProperty();
+
+    public int getTransaksi_id() {
+        return Transaksi_id.get();
     }
 
-    public Transaksi(int id, String date, int payment, int user_id) {
-        this.id = id;
-        this.date = date;
-        this.payment = payment;
-        this.user_id = user_id;
+    public void setTransaksi_id(int value) {
+        Transaksi_id.set(value);
     }
 
-    public int getId() {
-        return id;
+    public IntegerProperty Transaksi_idProperty() {
+        return Transaksi_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    /*public int id;
+     public String date;
+     public int payment;
+     public int user_id;
 
-    public String getDate() {
-        return date;
-    }
+     public Transaksi () {
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+     }
+
+     public Transaksi(int id, String date, int payment, int user_id) {
+     this.id = id;
+     this.date = date;
+     this.payment = payment;
+     this.user_id = user_id;
+     }
+
+     public int getId() {
+     return id;
+     }
+
+     public void setId(int id) {
+     this.id = id;
+     }
+
+     public String getDate() {
+     return date;
+     }
+
+     public void setDate(String date) {
+     this.date = date;
+     }
+
+     public int getPayment() {
+     return payment;
+     }
+
+     public void setPayment(int payment) {
+     this.payment = payment;
+     }
+
+     public int getUser_id() {
+     return user_id;
+     }
+
+     public void setUser_id(int user_id) {
+     this.user_id = user_id;
+     }*/
+    private final IntegerProperty payment = new SimpleIntegerProperty();
 
     public int getPayment() {
+        return payment.get();
+    }
+
+    public void setPayment(int value) {
+        payment.set(value);
+    }
+
+    public IntegerProperty paymentProperty() {
         return payment;
     }
-
-    public void setPayment(int payment) {
-        this.payment = payment;
-    }
+    private final IntegerProperty user_id = new SimpleIntegerProperty();
 
     public int getUser_id() {
+        return user_id.get();
+    }
+
+    public void setUser_id(int value) {
+        user_id.set(value);
+    }
+
+    public IntegerProperty user_idProperty() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-    
-    
 }
