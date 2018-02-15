@@ -72,17 +72,31 @@ public class User {
         return user_password;
     }
 
-    private final ObjectProperty<Role> role_id = new SimpleObjectProperty<?>();
+//    private final ObjectProperty<Role> role_id = new SimpleObjectProperty<?>();
+//
+//    public Role getRole_id() {
+//        return role_id.get();
+//    }
+//
+//    public void setRole_id(Role value) {
+//        role_id.set(value);
+//    }
+//
+//    public ObjectProperty role_idProperty() {
+//        return role_id;
+//    }
+    private final ObjectProperty<Role> Role = new SimpleObjectProperty<>();
 
-    public Role getRole_id() {
-        return role_id.get();
+    public Role getRole() {
+        return Role.get();
     }
 
-    public void setRole_id(Role value) {
-        role_id.set(value);
+    public void setRole(Role value) {
+        Role.set(value);
     }
 
-    public ObjectProperty role_idProperty() {
-        return role_id;
+    public ObjectProperty RoleProperty() {
+        return Role;
     }
+
 }

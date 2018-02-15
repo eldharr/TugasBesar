@@ -23,11 +23,12 @@ public class FXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }
 
     @FXML
     private void onSave(ActionEvent event) {
+
     }
 
     @FXML
@@ -36,6 +37,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void onExit(ActionEvent event) {
+        System.exit(0);
     }
 
 }

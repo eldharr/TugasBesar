@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -38,6 +39,12 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void btnLoginAction(ActionEvent event) {
+        if (textUsername.getText().trim().isEmpty() || textPassword.getText().
+                trim().isEmpty()) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("isi alert");
+            a.show();
+        }
+        return;
     }
-
 }
