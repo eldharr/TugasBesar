@@ -136,6 +136,7 @@ public class Transaksi_detail {
 
     public IntegerProperty discount_memberProperty() {
         return discount_member;
+
     }
 
 }

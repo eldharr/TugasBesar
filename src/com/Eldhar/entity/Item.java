@@ -92,31 +92,31 @@ public class Item {
     public StringProperty item_nameProperty() {
         return item_name;
     }
-    private final IntegerProperty item_price = new SimpleIntegerProperty();
+    private final IntegerProperty item_purchase = new SimpleIntegerProperty();
 
-    public int getItem_price() {
-        return item_price.get();
+    public int getItem_purchase() {
+        return item_purchase.get();
     }
 
-    public void setItem_price(int value) {
-        item_price.set(value);
+    public void setItem_purchase(int value) {
+        item_purchase.set(value);
     }
 
-    public IntegerProperty item_priceProperty() {
-        return item_price;
+    public IntegerProperty item_purchaseProperty() {
+        return item_purchase;
     }
-    private final IntegerProperty item_stock = new SimpleIntegerProperty();
+    private final IntegerProperty item_sell = new SimpleIntegerProperty();
 
-    public int getItem_stock() {
-        return item_stock.get();
-    }
-
-    public void setItem_stock(int value) {
-        item_stock.set(value);
+    public int getItem_sell() {
+        return item_sell.get();
     }
 
-    public IntegerProperty item_stockProperty() {
-        return item_stock;
+    public void setItem_sell(int value) {
+        item_sell.set(value);
+    }
+
+    public IntegerProperty item_sellProperty() {
+        return item_sell;
     }
 
 }

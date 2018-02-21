@@ -24,7 +24,7 @@ import javafx.scene.control.Alert;
  *
  * @author Developer
  */
-public class UsertDaolmpl implements DaoService<User> {
+public class UserDaolImpl implements DaoService<User> {
 
     @Override
     public int addData(User object) {
@@ -50,10 +50,10 @@ public class UsertDaolmpl implements DaoService<User> {
 //        }
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UsertDaolmpl.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(UserDaolImpl.class.getName()).log(Level.SEVERE,
                     null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(UsertDaolmpl.class.getName()).log(Level.SEVERE,
+            Logger.getLogger(UserDaolImpl.class.getName()).log(Level.SEVERE,
                     null, ex);
         }
         return result;
@@ -75,7 +75,7 @@ public class UsertDaolmpl implements DaoService<User> {
                     connection.rollback();
                 }
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(UsertDaolmpl.class.getName()).
+                Logger.getLogger(UserDaolImpl.class.getName()).
                         log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
@@ -107,7 +107,7 @@ public class UsertDaolmpl implements DaoService<User> {
         } catch (SQLException ex) {
             System.out.println(ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UsertDaolmpl.class.getName()).
+            Logger.getLogger(UserDaolImpl.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
         return result;

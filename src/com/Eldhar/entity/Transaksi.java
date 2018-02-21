@@ -5,6 +5,7 @@
  */
 package com.Eldhar.entity;
 
+import java.sql.Timestamp;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -100,6 +101,10 @@ public class Transaksi {
 
     public IntegerProperty user_idProperty() {
         return user_id;
+    }
+
+    public Timestamp getDate() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
