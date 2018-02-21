@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -24,26 +25,45 @@
         </rowConstraints>
          <children>
             <Label text="User_id" />
-            <Label text="Name" GridPane.rowIndex="1" />
-            <Label text="Username" GridPane.rowIndex="2" />
-            <Label text="Password" GridPane.rowIndex="3" />
+            <Label text="User_name" GridPane.rowIndex="1" />
+            <Label text="Password" GridPane.rowIndex="2" />
+            <Label text="Role_id" GridPane.rowIndex="3" />
             <TextField GridPane.columnIndex="1" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <Button id="UserMouseClicked" fx:id="UserMouseClicked" mnemonicParsing="false" onAction="#UserMouseClicked" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: white;" text="OK" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Delete">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="62.0" text="Exit">
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
             <ComboBox prefWidth="150.0" GridPane.rowIndex="5" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+               <children>
+                  <Button mnemonicParsing="false" text="Save" />
+               </children>
+            </HBox>
          </children>
       </GridPane>
       <TableView fx:id="tableUser" layoutY="206.0" onMouseClicked="#UserOnMouseClicked" prefHeight="200.0" prefWidth="605.0">
         <columns>
           <TableColumn prefWidth="75.0" text="User_id" />
-          <TableColumn prefWidth="122.0" text="Name" />
-            <TableColumn prefWidth="104.0" text="Username" />
+          <TableColumn prefWidth="157.0" text="User_name" />
+            <TableColumn prefWidth="169.0" text="Password" />
+            <TableColumn prefWidth="203.0" text="Role_id" />
         </columns>
       </TableView>
    </children>

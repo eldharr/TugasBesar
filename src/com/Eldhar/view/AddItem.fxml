@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Eldhar.controller.AddBarangController">
+    <stylesheets>
+        <URL value="@fxml.css" />
+    </stylesheets>
+   <children>
+      <GridPane layoutX="60.0" layoutY="100.0" style="-fx-background-color: pink;" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Item_id" />
+            <Label text="Item_name" GridPane.rowIndex="1" />
+            <Label text="Item_purchase" GridPane.rowIndex="2" />
+            <Label text="Item_sell" GridPane.rowIndex="3" />
+            <TextField fx:id="item_sell" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+               <children>
+                  <Button fx:id="onSave" mnemonicParsing="false" onAction="#onSave" text="Save" />
+                  <Button id="onDelete" fx:id="onDelete" mnemonicParsing="false" onAction="#onDelete" text="Delete">
+                     <HBox.margin>
+                        <Insets left="120.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <Button id="onExit" fx:id="onExit" mnemonicParsing="false" onAction="#onExit" prefHeight="31.0" prefWidth="66.0" text="Exit" />
+               </children>
+            </HBox>
+            <TextField fx:id="item_id" GridPane.columnIndex="1" />
+            <TextField fx:id="item_purchase" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="item_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <TableView layoutY="296.0" prefHeight="306.0" prefWidth="800.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="item_id" />
+          <TableColumn prefWidth="167.0" text="item_name" />
+            <TableColumn prefWidth="270.0" text="item_purchase" />
+            <TableColumn minWidth="2.0" prefWidth="284.0" text="item_sell" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
