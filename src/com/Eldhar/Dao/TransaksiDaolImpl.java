@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -28,33 +29,35 @@ public class TransaksiDaolImpl implements DaoService<Transaksi> {
     public int addData(Transaksi object) {
         Timestamp t = new Timestamp(System.currentTimeMillis());
         int result = 0;
+
         try {
-            try (Connection connection = DBUtil.createMySQLConnection()) {
-                connection.setAutoCommit(false);
-                String query
-                        = "ÏNSERT INTO transaksi(Transaksi_id,date,payment,user_id) VALUES (?,?,?,?)";
+            Connection connection = DBUtil.createMySQLConnection();
 
-                PreparedStatement ps = connection.prepareStatement(query);
-                ps.setInt(1, object.getTransaksi_id());
-                ps.setTime(2, object.getDate());
-                ps.setInt(2, object.getPayment());
-                ps.setInt(3, object.getUser_id());
+            connection.setAutoCommit(false);
+            String query
+                    = "INSERT INTO transaksi (Transaksi_id,date,payment,user_id) VALUES (?,?,?,?)";
 
-                if (ps.executeUpdate() != 0) {
-                    connection.commit();
-                    result = 1;
-                } else {
-                    connection.rollback();
-                }
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, object.getTransaksi_id());
+            ps.setTimestamp(2, t);
+            ps.setInt(3, object.getPayment());
+            ps.setInt(4, object.getUser_id());
 
-            } catch (SQLException ex) {
-                Logger.getLogger(TransaksiDaolImpl.class.getName()).
-                        log(Level.SEVERE, null, ex);
+            if (ps.executeUpdate() != 0) {
+                connection.commit();
+                result = 1;
+            } else {
+                connection.rollback();
             }
 
         } catch (ClassNotFoundException ex) {
-            System.out.println(ex);
+            Logger.getLogger(TransaksiDaolImpl.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(TransaksiDaolImpl.class.getName()).
+                    log(Level.SEVERE, null, ex);
         }
+
         return result;
     }
 
@@ -70,7 +73,7 @@ public class TransaksiDaolImpl implements DaoService<Transaksi> {
 
     @Override
     public List<Transaksi> showAllData() {
-        Observablelist<Transaksi> transaksi = FXCollections.
+        ObservableList<Transaksi> transaksi = FXCollections.
                 observableArrayList();
         try {
             try (Connection connection = DBUtil.createMySQLConnection()) {
@@ -82,7 +85,7 @@ public class TransaksiDaolImpl implements DaoService<Transaksi> {
                 while (rs.next()) {
                     Transaksi transaksiObject = new Transaksi();
                     transaksiObject.setTransaksi_id(rs.getInt("Transaksi_id"));
-                    transaksiObject.setDate(rs.getTimestamp("Date"));
+                    //transaksiObject.setDate(rs.getTimestamp("Date"));
                     transaksiObject.setPayment(rs.getInt("Payment"));
                     transaksiObject.setUser_id(rs.getInt("user_id"));
 

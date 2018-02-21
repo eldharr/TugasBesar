@@ -10,7 +10,6 @@ import com.Eldhar.utility.DBUtil;
 import com.Eldhar.utility.DaoService;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -56,108 +55,98 @@ public class ItemDaoImpl implements DaoService<Item> {
     public int deleteData(Item object) {
         int result = 0;
         try {
-            try {
-                Connection connection = DBUtil.createMySQLConnection()
+            Connection connection = DBUtil.createMySQLConnection();
+            connection.setAutoCommit(false);
+            String query = "DELETE FROM item WHERE item_id = ?";
 
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, object.getItem_id());
 
-                    ) {
-               connection.setAutoCommit(false);
-                    String query = "DELETE FROM item WHERE item_id = ?";
-
-                    PreparedStatement ps = connection.prepareStatement(query);
-                    ps.setInt(1, object.getItem_id());
-
-                    if (ps.executeUpdate() != 0) {
-                        connection.commit();
-                        result = 1;
-
-                    } else {
-                        connection.rollback();
-                    }
-                }
-            } catch (ClassNotFoundException | SQLException ex) {
-                System.out.println(ex);
+            if (ps.executeUpdate() != 0) {
+                connection.commit();
+                result = 1;
+            } else {
+                connection.rollback();
             }
-            return result;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ItemDaoImpl.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDaoImpl.class.getName()).
+                    log(Level.SEVERE, null, ex);
         }
-
-        @Override
-        public int updateData
-        (Item object
-
-
-            ) {
-        int result = 0;
-            try {
-                try (Connection connection = DBUtil.createMySQLConnection()) {
-                    connection.setAutoCommit(false);
-                    String query
-                            = "UPDATE item SET item_name = ?, item_puchase = ?, item_sell = ?, WHERE item_id = ?";
-
-                    PreparedStatement ps = connection.prepareStatement(query);
-                    ps.setInt(1, object.getItem_id());
-                    ps.setString(2, object.getItem_name());
-                    ps.setInt(3, object.getItem_purchase());
-                    ps.setInt(4, object.getItem_sell());
-
-                    if (ps.executeUpdate() != 0) {
-                        connection.commit();
-                        result = 1;
-                    } else {
-                        connection.rollback();
-                    }
-                }
-            } catch (ClassNotFoundException | SQLException ex) {
-                System.out.println(ex);
-            }
-            return result;
-        }
-
-        @Override
-        public List<Item> showAllData
-
-
-            () {
-        ObservableList<Item> item = FXCollections.observableArrayList();
-            try {
-                try (Connection connection = DBUtil.createMySQLConnection()) {
-                    String query = "SELECT * FROM Item  ";
-
-                    PreparedStatement ps = connection.prepareStatement(query);
-                    ResultSet rs = ps.executeQuery();
-
-                    while (rs.next()) {
-                        Item itemObject = new Item();
-                        itemObject.setItem_id(rs.getInt("item_id"));
-                        itemObject.setItem_name(rs.getString("item_name"));
-                        itemObject.setItem_purchase(rs.getInt("item_purchase"));
-                        itemObject.setItem_sell(rs.getInt("item_sell"));
-
-                        item.add(itemObject);
-
-                    }
-                }
-            } catch (ClassNotFoundException
-
-            }
-            SQLException ex
-
-
-                ) {
-            Logger.getLogger(ItemDaoImpl.class.getName()).log(Level.SEVERE,
-                        null, ex);
-            }
-
-            return item;
-        }
-
-        @Override
-        public Item getData
-        (Item id
-
-
-            ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
+//        
+        return result;
     }
+
+    @Override
+    public int updateData(Item object) {
+        int result = 0;
+        try {
+            try (Connection connection = DBUtil.createMySQLConnection()) {
+                connection.setAutoCommit(false);
+                String query
+                        = "UPDATE item SET item_name = ?, item_puchase = ?, item_sell = ?, WHERE item_id = ?";
+
+                PreparedStatement ps = connection.prepareStatement(query);
+                ps.setInt(1, object.getItem_id());
+                ps.setString(2, object.getItem_name());
+                ps.setInt(3, object.getItem_purchase());
+                ps.setInt(4, object.getItem_sell());
+
+                if (ps.executeUpdate() != 0) {
+                    connection.commit();
+                    result = 1;
+                } else {
+                    connection.rollback();
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(ex);
+        }
+        return result;
+    }
+
+    @Override
+    public List<Item> showAllData() {
+        ObservableList<Item> item = FXCollections.observableArrayList();
+//        try {
+//            try (Connection connection = DBUtil.createMySQLConnection()) {
+//                String query = "SELECT * FROM Item  ";
+//
+//                PreparedStatement ps = connection.prepareStatement(query);
+//                ResultSet rs = ps.executeQuery();
+//
+//                while (rs.next()) {
+//                    Item itemObject = new Item();
+//                    itemObject.setItem_id(rs.getInt("item_id"));
+//                    itemObject.setItem_name(rs.getString("item_name"));
+//                    itemObject.setItem_purchase(rs.getInt("item_purchase"));
+//                    itemObject.setItem_sell(rs.getInt("item_sell"));
+//
+//                    item.add(itemObject);
+//
+//                }
+//
+//        } catch (ClassNotFoundException
+//
+//
+//        }
+//        SQLException ex
+//
+//
+//
+//            ) {
+//            Logger.getLogger(ItemDaoImpl.class.getName()).log(Level.SEVERE,
+//                    null, ex);
+//        }
+
+        return item;
+    }
+
+    @Override
+    public Item getData(Item id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+}

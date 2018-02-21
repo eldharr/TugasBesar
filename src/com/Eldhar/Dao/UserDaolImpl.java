@@ -126,7 +126,7 @@ public class UserDaolImpl implements DaoService<User> {
                     User user = new User();
                     user.setUser_id(rs.getInt("id.user_id"));
                     user.setUser_name(rs.getString("user_name"));
-                    user.setUsername(rs.getString("username"));
+
                     user.setUser_password(rs.getString("user_password"));
 
                     Role role = new Role();
@@ -152,7 +152,6 @@ public class UserDaolImpl implements DaoService<User> {
                 PreparedStatement ps = connection.prepareStatement(query);
                 ps.setInt(1, id.getUser_id());
                 ps.setString(2, id.getUser_name());
-                ps.setString(3, id.getUsername());
                 ps.setString(4, id.getUser_password());
                 ps.setInt(5, id.getRole().getRole_id());
                 ResultSet rs = ps.executeQuery();
@@ -160,7 +159,6 @@ public class UserDaolImpl implements DaoService<User> {
                     User user = new User();
                     user.setUser_id(rs.getInt("ü.user_Id"));
                     user.setUser_name(rs.getString("u.user_name"));
-                    user.setUsername(rs.getString("u.username"));
                     user.setUser_password(rs.getString("u.user_password"));
 
                     Role role = new Role();
@@ -191,7 +189,6 @@ public class UserDaolImpl implements DaoService<User> {
                 if (rs.next()) {
                     user.setUser_id(rs.getInt("ü.user_Id"));
                     user.setUser_name(rs.getString("u.user_name"));
-                    user.setUsername(rs.getString("u.username"));
                     user.setUser_password(rs.getString("u.user_password"));
 
                     Role role = new Role();

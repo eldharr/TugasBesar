@@ -45,19 +45,19 @@ public class User {
     public StringProperty user_nameProperty() {
         return user_name;
     }
-    private final StringProperty username = new SimpleStringProperty();
-
-    public String getUsername() {
-        return username.get();
-    }
-
-    public void setUsername(String value) {
-        username.set(value);
-    }
-
-    public StringProperty usernameProperty() {
-        return username;
-    }
+//    private final StringProperty username = new SimpleStringProperty();
+//
+//    public String getUsername() {
+//        return username.get();
+//    }
+//
+//    public void setUsername(String value) {
+//        username.set(value);
+//    }
+//
+//    public StringProperty usernameProperty() {
+//        return username;
+//    }
     private final StringProperty user_password = new SimpleStringProperty();
 
     public String getUser_password() {

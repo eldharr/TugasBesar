@@ -13,13 +13,14 @@ import java.sql.SQLException;
  *
  * @author Eldha Ramadhanty
  */
-
 public class DBUtil {
 
-    public static Connection createMySQLConnection() throws ClassNotFoundException, SQLException {
+    public static Connection createMySQLConnection() throws
+            ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://host:port/dbname", "username", "password");
+        Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/oopl20172", "root", "");
         connection.setAutoCommit(false);
         return connection;
-    } 
+    }
 }
