@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Eldhar.controller.AddBarangController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Eldhar.controller.AddItemController">
     <stylesheets>
         <URL value="@fxml.css" />
     </stylesheets>
@@ -32,7 +32,7 @@
             <Label text="Item_name" GridPane.rowIndex="1" />
             <Label text="Item_purchase" GridPane.rowIndex="2" />
             <Label text="Item_sell" GridPane.rowIndex="3" />
-            <TextField fx:id="item_sell" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtItem_sell" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
                <children>
                   <Button fx:id="onSave" mnemonicParsing="false" onAction="#onSave" text="Save" />
@@ -48,9 +48,9 @@
                   <Button id="onExit" fx:id="onExit" mnemonicParsing="false" onAction="#onExit" prefHeight="31.0" prefWidth="66.0" text="Exit" />
                </children>
             </HBox>
-            <TextField fx:id="item_id" GridPane.columnIndex="1" />
-            <TextField fx:id="item_purchase" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="item_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtItem_id" GridPane.columnIndex="1" />
+            <TextField fx:id="txtItem_purchase" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtItem_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <TableView layoutY="296.0" prefHeight="306.0" prefWidth="800.0">
